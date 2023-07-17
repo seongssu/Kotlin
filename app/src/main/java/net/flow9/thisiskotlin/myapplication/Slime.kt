@@ -17,7 +17,7 @@ class Slime {
     }
 
     fun attack() {
-        println("점성 공격!")
+        println("")
     }
 
     fun jumpAttack() {
