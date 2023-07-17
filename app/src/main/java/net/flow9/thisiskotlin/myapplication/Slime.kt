@@ -21,6 +21,6 @@ class Slime {
     }
 
     fun jumpAttack() {
-        println("점프해서 내려찍기!")
+        println("점프해서 내려찍기!!!!!!!!!!!")
     }
 }
