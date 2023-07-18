@@ -1,6 +1,6 @@
 package net.flow9.thisiskotlin.myapplication
 
-class Archer {
+class Archer : Character {
     var name: String = ""
     var age: Int = 0
     var gender: String = ""
@@ -15,9 +15,10 @@ class Archer {
         var money = _money
         var hp = _hp
         var mp = _mp
+        println("${name}의 이름을 가진 궁수 생성")
     }
 
-    fun attack() {
+    override fun attack() {
         println("활쏘기")
     }
 
