@@ -9,13 +9,15 @@ class Character {
     var hairColor: String = ""
     var height: Double = 0.0
 
+
 //    init {
 //        println("매개변수 없는 생성자 실행 완료")
 //    }
 
-    constructor(_name: String, _hairColor: String, _height: String) {
+    constructor(_name: String, _hairColor: String, _height: Double) {
         println("${_name}을 생성자로 넘겼어요 \n ${_hairColor}을 생성자로 넘겼어요 \n ${_height}을 생성자로 넘겼어요")
     }
+
 
     fun fireBall() {
         println("파이어볼!")
