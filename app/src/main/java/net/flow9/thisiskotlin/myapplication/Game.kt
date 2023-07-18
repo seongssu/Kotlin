@@ -4,11 +4,14 @@ fun main() {
 
 }
 
-class Character() {
+class Character(_name: String, _hairColor: String, _height: Double) {
     var name: String = ""
     var hairColor: String = ""
     var height: Double = 0.0
 
+//    init {
+//        println("매개변수 없는 생성자 실행 완료")
+//    }
     fun fireBall() {
         println("파이어볼!")
     }
