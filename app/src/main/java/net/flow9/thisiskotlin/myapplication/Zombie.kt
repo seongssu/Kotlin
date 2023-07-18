@@ -1,11 +1,11 @@
 package net.flow9.thisiskotlin.myapplication
 
 class Zombie : Monster {
-    var name: String = ""
-    var color: String = ""
-    var height: Double = 0.0
-    var hp: Int = 0
-    var damage: Int = 0
+    var name: String
+    var color: String
+    var height: Double
+    var hp: Int
+    var damage: Int
 
     constructor(_name: String, _color: String, _height: Double, _hp: Int, _damage: Int) {
         name = _name
