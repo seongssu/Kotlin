@@ -1,6 +1,6 @@
 package net.flow9.thisiskotlin.myapplication
 
-class Zombie {
+class Zombie : Monster {
     var name: String = ""
     var color: String = ""
     var height: Double = 0.0
@@ -13,9 +13,10 @@ class Zombie {
         height = _height
         hp = _hp
         damage = _damage
+        println("${name}좀비 생성")
     }
 
-    fun attack() {
+    override fun attack() {
         println("물어 뜯기")
     }
 
