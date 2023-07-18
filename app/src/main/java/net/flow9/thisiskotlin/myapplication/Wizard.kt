@@ -25,7 +25,7 @@ class Wizard {
         println("파이어볼")
     }
 
-    fun teleport() {
+    fun teleport(src:Int,dst:Int) {
         println("${src}에서 ${dst}로 텔레포트")
     }
 }
