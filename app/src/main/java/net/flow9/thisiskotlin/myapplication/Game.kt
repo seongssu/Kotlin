@@ -4,7 +4,7 @@ fun main() {
 
 }
 
-class Character(_name: String, _hairColor: String, _height: Double) {
+class Character {
     var name: String = ""
     var hairColor: String = ""
     var height: Double = 0.0
@@ -12,6 +12,11 @@ class Character(_name: String, _hairColor: String, _height: Double) {
 //    init {
 //        println("매개변수 없는 생성자 실행 완료")
 //    }
+
+    constructor(_name: String, _hairColor: String, _height: String) {
+        println("${_name}을 생성자로 넘겼어요 \n ${_hairColor}을 생성자로 넘겼어요 \n ${_height}을 생성자로 넘겼어요")
+    }
+
     fun fireBall() {
         println("파이어볼!")
     }
