@@ -1,6 +1,6 @@
 package net.flow9.thisiskotlin.myapplication
 
-class Wizard {
+class Wizard : Character {
     var name: String = ""
     var age: Int = 0
     var gender: String = ""
@@ -15,9 +15,10 @@ class Wizard {
         var money = _money
         var hp = _hp
         var mp = _mp
+        println("${name}의 이름을 가진 마법사 생성")
     }
 
-    fun attack() {
+    override fun attack() {
         println("에너지 볼")
     }
 
@@ -25,7 +26,7 @@ class Wizard {
         println("파이어볼")
     }
 
-    fun teleport(src:Int,dst:Int) {
+    fun teleport(src: Int, dst: Int) {
         println("${src}에서 ${dst}로 텔레포트")
     }
 }
