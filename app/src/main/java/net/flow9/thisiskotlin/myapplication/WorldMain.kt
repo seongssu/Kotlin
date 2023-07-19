@@ -7,8 +7,7 @@ fun main() {
 
     var myAge = InputMyInfo("age").toString().toInt()
 
-    println("직업을 입력해주세요")
-    var myJob = readLine()!!
+    var myJob = InputMyInfo("job").toString()
 
     println("성별을 입력해주세요")
     var myGender = readLine()!!
@@ -109,7 +108,7 @@ fun selectWorldByArcher(selectWorld: Int, myCharacter: Archer) {
 }
 
 fun InputMyInfo(type: String): Any? {
-    return when(type) {
+    return when (type) {
         "name" -> {
             println("이름을 입력해주세요")
             while (true) {
@@ -121,19 +120,36 @@ fun InputMyInfo(type: String): Any? {
                         println("이름을 다시 입력해 주세요")
 
                     }
-                } catch (e:Exception){
+                } catch (e: Exception) {
                     println("이름을 다시 입력해주세요")
                 }
             }
         }
+
         "age" -> {
             println("나이를 입력해주세요")
-            while (true){
+            while (true) {
                 try {
-                    var originAge:String? = readLine()
+                    var originAge: String? = readLine()
                     return originAge?.toInt() ?: -1
-                } catch (e:Exception) {
+                } catch (e: Exception) {
                     println("나이를 입력해주세요")
+                }
+            }
+        }
+
+        "job" -> {
+            println("직업을 입력해주세요")
+            while (true) {
+                try {
+                    var originName = readLine()
+                    if (originName?.equals("궁수") == true || originName?.equals("마법사") == true) {
+                        return originName
+                    } else {
+                        println("직업을 다시 입력해주세요")
+                    }
+                } catch (e: java.lang.Exception) {
+                    println("직업을 다시 입력해주세요")
                 }
             }
         }
