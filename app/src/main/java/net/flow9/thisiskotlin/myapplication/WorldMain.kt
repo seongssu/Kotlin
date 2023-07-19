@@ -78,7 +78,7 @@ fun main() {
             var myCharacter = Archer(myName, myAge, myGender, myMoney, myHp)
 
             while (true) {
-                println("[1]슬라임동굴 [2]좀비마을 [3]캐쉬샵 [4]종료")
+                println("[1]슬라임동굴 [2]좀비마을 [3]캐쉬샵 [4]로또 [5]종료")
                 var selectNumber = InputMyInfo("selectNumber").toString().toInt()
 
                 when (selectNumber) {
@@ -95,6 +95,11 @@ fun main() {
                     }
 
                     4 -> {
+                        var selectHorse = InputMyInfo("selectHorse").toString()
+                        startLotto(myCharacter, selectHorse)
+                    }
+
+                    5 -> {
                         println("게임 종료")
                         break
                     }
@@ -119,31 +124,29 @@ fun displayInfo(worldName: String, myName: String, myAge: Int, myJob: String) {
 
 fun selectWorld(selectWorld: Int, myCharacter: Character) {
     if (selectWorld == 1) {
-        if (myCharacter is Archer){
-            var slime1 = Slime("초록슬라임","초록",30.2,200,10)
+        if (myCharacter is Archer) {
+            var slime1 = Slime("초록슬라임", "초록", 30.2, 200, 10)
             slime1.attack()
             myCharacter.windArrow()
             slime1.poison()
-        } else if(myCharacter is Wizard) {
+        } else if (myCharacter is Wizard) {
             var slime1 = Slime("파랑슬라임", "파랑", 30.2, 200, 10)
             slime1.attack()
             myCharacter.fireBall()
             slime1.poison()
-        }
-        else if(selectWorld == 2){
-            if(myCharacter is Archer){
-                var zombie1 = Zombie("파랑좀비","파랑",142.2,500,25)
+        } else if (selectWorld == 2) {
+            if (myCharacter is Archer) {
+                var zombie1 = Zombie("파랑좀비", "파랑", 142.2, 500, 25)
                 zombie1.virus()
                 myCharacter.windJump("아파트")
-            } else if(myCharacter is Wizard){
-                var zombie1 = Zombie("파랑좀비", "파랑", 142.2,500,25)
+            } else if (myCharacter is Wizard) {
+                var zombie1 = Zombie("파랑좀비", "파랑", 142.2, 500, 25)
                 zombie1.virus()
-                myCharacter.teleport(10,20)
+                myCharacter.teleport(10, 20)
             }
         }
     }
 }
-
 
 
 fun InputMyInfo(type: String): Any? {
@@ -271,6 +274,23 @@ fun InputMyInfo(type: String): Any? {
             }
         }
 
+        "selectHorse" -> {
+            println("말의 이름을 입력해주세요")
+            while (true) {
+                try {
+                    var originHorse = readLine()
+                    if (originHorse?.equals("one") == true || originHorse?.equals("two") == true) {
+                        return originHorse
+                    } else {
+                        println("말의 이름을 다시 입력해주세요")
+                    }
+                } catch (e: java.lang.Exception) {
+                    println("말의 이름을 다시 입력해주세요")
+                }
+            }
+        }
+
+
         else -> {
             return "no"
         }
@@ -280,15 +300,21 @@ fun InputMyInfo(type: String): Any? {
 fun openCashShop(character: Character) {
     var cashShop = CashShop.getInstance()
 
-    if(character is Archer){
+    if (character is Archer) {
         println("구매전 무기: ${character.weapons}")
         cashShop.purchaseWeapon(character)
         println("구매후 무기: ${character.weapons}")
-    } else if(character is Wizard) {
+    } else if (character is Wizard) {
         println("구매전 무기: ${character.weapons}")
         cashShop.purchaseWeapon(character)
         println("구매후 무기: ${character.weapons}")
     }
 
+}
+
+fun startLotto(character: Character, horse: String) {
+    var cashShop = CashShop.getInstance()
+
+    cashShop.startLotto(character, horse)
 }
 
