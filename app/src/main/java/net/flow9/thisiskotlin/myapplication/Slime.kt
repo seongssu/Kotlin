@@ -6,15 +6,15 @@ class Slime : GreenSlimeSkill, Monster {
     var height: Double
     var hp: Int
     var mp: Int
-    var damage: Int
 
-    constructor(_name: String, _color: String, _height: Double, _hp: Int, _mp: Int, _damage: Int) {
+
+    constructor(_name: String, _color: String, _height: Double, _hp: Int, _mp: Int) {
         name = _name
         color = _color
         height = _height
         hp = _hp
         mp = _mp
-        damage = _damage
+
     }
 
     override fun attack() {
