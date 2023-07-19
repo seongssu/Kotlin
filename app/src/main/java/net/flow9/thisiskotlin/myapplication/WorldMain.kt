@@ -3,8 +3,7 @@ package net.flow9.thisiskotlin.myapplication
 fun main() {
     val worldName = "스코월드"
 
-    println("이름을 입력해주세요")
-    var myName = readLine()!!
+    var myName = InputMyInfo("name").toString()
 
     println("나이를 입력해주세요")
     var myAge = readLine()!!.toInt()
@@ -101,11 +100,32 @@ fun selectWorldByArcher(selectWorld: Int, myCharacter: Archer) {
         myCharacter.windJump("아파트")
 
         slime1.poison()
-    } else if(selectWorld ==2 ){
-        var zombie1 = Zombie("파란좀비","파랑", 142.2,500, 25)
+    } else if (selectWorld == 2) {
+        var zombie1 = Zombie("파란좀비", "파랑", 142.2, 500, 25)
         zombie1.attack()
         myCharacter.windArrow()
 
         zombie1.virus()
+    }
+}
+
+fun InputMyInfo(type: String): Any? {
+    return when(type) {
+        "name" -> {
+            println("이름을 입력해주세요")
+            while (true) {
+                try {
+                    var originName = readLine()
+                    if (originName?.first() != '_' && originName?.first() != '!') {
+                        return originName
+                    } else {
+                        println("이름을 다시 입력해 주세요")
+
+                    }
+                } catch (e:Exception){
+                    println("이름을 다시 입력해주세요")
+                }
+            }
+        }
     }
 }
