@@ -15,7 +15,6 @@ fun main() {
 
     var myHp = InputMyInfo("hP").toString().toInt()
 
-    var myMp = InputMyInfo("mp").toString().toInt()
 
     var isNamePass = true
     var isAgePass = true
@@ -44,21 +43,67 @@ fun main() {
 
         if (myJob == "마법사") {
             println("마법사는 초기 mp도 입력해 주세요")
-            myMp = readLine()!!.toInt()
+            var myMp = InputMyInfo("mp").toString().toInt()
             var myCharacter = Wizard(myName, myAge, myGender, myMoney, myHp, myMp)
 
-            println("던전을 선택해주세요")
-            println("[1]슬라임동굴, [2]좀비마을")
-            var selectWorld = readLine()!!.toInt()
-            selectWorldByWizard(selectWorld, myCharacter)
+            while (true) {
+                println("[1]슬라임동굴 [2]좀비마을 [3]캐쉬샵 [4]종료")
+                var selectNumber = InputMyInfo("selectNumber").toString().toInt()
+
+                when (selectNumber) {
+                    1 -> {
+                        selectWorldByWizard(1, myCharacter)
+                    }
+
+                    2 -> {
+                        selectWorldByWizard(2, myCharacter)
+                    }
+
+                    3 -> {
+                        openCashShopByWizard(myCharacter)
+                    }
+
+                    4 -> {
+                        println("게임 종료")
+                        break
+                    }
+
+                    else -> {
+                        break
+                    }
+                }
+            }
         } else if (myJob == "궁수") {
             println("궁수를 선택했군요")
             var myCharacter = Archer(myName, myAge, myGender, myMoney, myHp)
 
-            println("던전을 선택해주세요")
-            println("[1]슬라임동굴, [2]좀비마을")
-            var selectWorld = readLine()!!.toInt()
-            selectWorldByArcher(selectWorld, myCharacter)
+            while (true) {
+                println("[1]슬라임동굴 [2]좀비마을 [3]캐쉬샵 [4]종료")
+                var selectNumber = InputMyInfo("selectNumber").toString().toInt()
+
+                when (selectNumber) {
+                    1 -> {
+                        selectWorldByArcher(1, myCharacter)
+                    }
+
+                    2 -> {
+                        selectWorldByArcher(2, myCharacter)
+                    }
+
+                    3 -> {
+                        openCashShopByArcher(myCharacter)
+                    }
+
+                    4 -> {
+                        println("게임 종료")
+                        break
+                    }
+
+                    else -> {
+                        break
+                    }
+                }
+            }
         }
     }
 }
@@ -195,6 +240,7 @@ fun InputMyInfo(type: String): Any? {
         "mP" -> {
             while (true) {
                 try {
+                    println("초기 MP를 입력해주세요")
                     var originMp: String? = readLine()
                     return originMp?.toInt() ?: -1
                 } catch (e: java.lang.Exception) {
@@ -204,13 +250,26 @@ fun InputMyInfo(type: String): Any? {
         }
 
         "selectWorld" -> {
+            print("던전을 선택해주세요")
             while (true) {
                 try {
                     var selectWorld: String? = readLine()
                     return selectWorld?.toInt() ?: -1
 
                 } catch (e: java.lang.Exception) {
-                    println("월드를 다시 선택해주세요")
+                    println("던전을 다시 선택해주세요")
+                }
+            }
+        }
+
+        "selectNumber" -> {
+            println("번호를 선택해주세요")
+            while (true) {
+                try {
+                    var selectNumber: String? = readLine()
+                    return selectNumber?.toInt() ?: -1
+                } catch (e: java.lang.Exception) {
+                    println("번호를 다시 선택해주세요")
                 }
             }
         }
@@ -221,14 +280,14 @@ fun InputMyInfo(type: String): Any? {
     }
 }
 
-fun openCashShopByArcher(character:Archer) {
+fun openCashShopByArcher(character: Archer) {
     var cashShop = CashShop.getInstance()
 
     println("구매전 무기: ${character.weapons}")
 
 }
 
-fun openCachShopByWizard(character: Wizard) {
+fun openCashShopByWizard(character: Wizard) {
     var cashShop = CashShop.getInstance()
     println("구매전 무기: ${character.weapons}")
 }
