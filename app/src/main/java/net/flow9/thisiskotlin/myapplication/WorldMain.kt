@@ -53,7 +53,7 @@ fun main() {
             selectWorldByWizard(selectWorld, myCharacter)
         } else if (myJob == "궁수") {
             println("궁수를 선택했군요")
-            var myCharacter = Archer(myName, myAge, myGender, myMoney, myHp, myMp)
+            var myCharacter = Archer(myName, myAge, myGender, myMoney, myHp)
 
             println("던전을 선택해주세요")
             println("[1]슬라임동굴, [2]좀비마을")
@@ -219,4 +219,16 @@ fun InputMyInfo(type: String): Any? {
             return "no"
         }
     }
+}
+
+fun openCashShopByArcher(character:Archer) {
+    var cashShop = CashShop.getInstance()
+
+    println("구매전 무기: ${character.weapons}")
+
+}
+
+fun openCachShopByWizard(character: Wizard) {
+    var cashShop = CashShop.getInstance()
+    println("구매전 무기: ${character.weapons}")
 }
