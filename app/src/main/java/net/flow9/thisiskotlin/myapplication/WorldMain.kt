@@ -128,7 +128,7 @@ fun InputMyInfo(type: String): Any? {
             while (true) {
                 try {
                     var originAge: String? = readLine()
-                    return originAge?.toInt() ?: -1
+                    return originAge?.toInt() ?: -2
                 } catch (e: Exception) {
                     println("나이를 입력해주세요")
                 }
@@ -193,12 +193,30 @@ fun InputMyInfo(type: String): Any? {
         }
 
         "mP" -> {
-            while (true) { try {
-                var originMp:String? = readLine()
-                return originMp?.toInt()?: -1
-            } catch (e:java.lang.Exception){
-                println("초기 MP를 다시 입력 해주세요")
-            }
+            while (true) {
+                try {
+                    var originMp: String? = readLine()
+                    return originMp?.toInt() ?: -1
+                } catch (e: java.lang.Exception) {
+                    println("초기 MP를 다시 입력 해주세요")
+                }
             }
         }
-    }}
+
+        "selectWorld" -> {
+            while (true) {
+                try {
+                    var selectWorld: String? = readLine()
+                    return selectWorld?.toInt() ?: -1
+
+                } catch (e: java.lang.Exception) {
+                    println("월드를 다시 선택해주세요")
+                }
+            }
+        }
+
+        else -> {
+            return "no"
+        }
+    }
+}
