@@ -9,8 +9,7 @@ fun main() {
 
     var myJob = InputMyInfo("job").toString()
 
-    println("성별을 입력해주세요")
-    var myGender = readLine()!!
+    var myGender = InputMyInfo("gender").toString()
 
     println("초기자본을 입력해주세요")
     var myMoney = readLine()!!.toInt()
@@ -150,6 +149,22 @@ fun InputMyInfo(type: String): Any? {
                     }
                 } catch (e: java.lang.Exception) {
                     println("직업을 다시 입력해주세요")
+                }
+            }
+        }
+
+        "gender" -> {
+            println("성별을 입력해주세요")
+            while (true) {
+                try {
+                    var originGender = readLine()
+                    if (originGender.equals("남") == true || originGender.equals("녀") == true) {
+                        return originGender
+                    } else {
+                        println("성별을 다시 입력해 주세요")
+                    }
+                } catch (e: java.lang.Exception) {
+                    println("성별을 다시 입력해주세요")
                 }
             }
         }
