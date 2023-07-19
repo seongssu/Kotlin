@@ -142,9 +142,9 @@ fun InputMyInfo(type: String): Any? {
             println("직업을 입력해주세요")
             while (true) {
                 try {
-                    var originName = readLine()
-                    if (originName?.equals("궁수") == true || originName?.equals("마법사") == true) {
-                        return originName
+                    var originJob = readLine()
+                    if (originJob?.equals("궁수") == true || originJob?.equals("마법사") == true) {
+                        return originJob
                     } else {
                         println("직업을 다시 입력해주세요")
                     }
