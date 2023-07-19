@@ -13,10 +13,9 @@ fun main() {
 
     var myMoney = InputMyInfo("money").toString().toInt()
 
-    println("초기체력 입력해주세요")
-    var myHp = readLine()!!.toInt()
+    var myHp = InputMyInfo("hP").toString().toInt()
 
-    var myMp: Int = 0
+    var myMp = InputMyInfo("mp").toString().toInt()
 
     var isNamePass = true
     var isAgePass = true
@@ -169,16 +168,37 @@ fun InputMyInfo(type: String): Any? {
         }
 
         "money" -> {
-            while (true){
+            while (true) {
                 try {
                     println("초기 자본을 입력해주세요")
-                    var originMoney:String? = readLine()
-                    return originMoney?.toInt()?: -1
+                    var originMoney: String? = readLine()
+                    return originMoney?.toInt() ?: -1
 
-                } catch (e:java.lang.Exception){
+                } catch (e: java.lang.Exception) {
                     println("초기자본을 다시 입력해주세요")
                 }
             }
         }
-    }
-}
+
+        "hP" -> {
+            while (true) {
+                try {
+                    println("초기 HP를 입력해주세요")
+                    var originHP: String? = readLine()
+                    return originHP?.toInt() ?: -1
+                } catch (e: java.lang.Exception) {
+                    println("초기 HP를 다시 입력 해주세요")
+                }
+            }
+        }
+
+        "mP" -> {
+            while (true) { try {
+                var originMp:String? = readLine()
+                return originMp?.toInt()?: -1
+            } catch (e:java.lang.Exception){
+                println("초기 MP를 다시 입력 해주세요")
+            }
+            }
+        }
+    }}
