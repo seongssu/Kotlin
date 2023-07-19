@@ -11,8 +11,7 @@ fun main() {
 
     var myGender = InputMyInfo("gender").toString()
 
-    println("초기자본을 입력해주세요")
-    var myMoney = readLine()!!.toInt()
+    var myMoney = InputMyInfo("money").toString().toInt()
 
     println("초기체력 입력해주세요")
     var myHp = readLine()!!.toInt()
@@ -165,6 +164,19 @@ fun InputMyInfo(type: String): Any? {
                     }
                 } catch (e: java.lang.Exception) {
                     println("성별을 다시 입력해주세요")
+                }
+            }
+        }
+
+        "money" -> {
+            while (true){
+                try {
+                    println("초기 자본을 입력해주세요")
+                    var originMoney:String? = readLine()
+                    return originMoney?.toInt()?: -1
+
+                } catch (e:java.lang.Exception){
+                    println("초기자본을 다시 입력해주세요")
                 }
             }
         }
