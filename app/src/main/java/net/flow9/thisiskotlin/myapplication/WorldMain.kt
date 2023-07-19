@@ -5,8 +5,7 @@ fun main() {
 
     var myName = InputMyInfo("name").toString()
 
-    println("나이를 입력해주세요")
-    var myAge = readLine()!!.toInt()
+    var myAge = InputMyInfo("age").toString().toInt()
 
     println("직업을 입력해주세요")
     var myJob = readLine()!!
@@ -124,6 +123,17 @@ fun InputMyInfo(type: String): Any? {
                     }
                 } catch (e:Exception){
                     println("이름을 다시 입력해주세요")
+                }
+            }
+        }
+        "age" -> {
+            println("나이를 입력해주세요")
+            while (true){
+                try {
+                    var originAge:String? = readLine()
+                    return originAge?.toInt() ?: -1
+                } catch (e:Exception) {
+                    println("나이를 입력해주세요")
                 }
             }
         }
